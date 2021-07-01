@@ -10,3 +10,5 @@
 - run php artisan migrate 
 - run php artisan serve
 - you can now access 
+
+APIs postman public link https://www.getpostman.com/collections/f15b5aa30f2a5893bce9
