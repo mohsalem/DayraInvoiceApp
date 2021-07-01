@@ -17,10 +17,10 @@ class invoice_email extends Mailable
      *
      * @return void
      */
-    public function __construct($full_name, $amount_due, $due_date)
+    public function __construct($full_name, $amount, $due_date)
     {
         $this->full_name = $full_name;
-        $this->amount_due = $amount_due;
+        $this->amount = $amount;
         $this->due_date = $due_date;
 
     }

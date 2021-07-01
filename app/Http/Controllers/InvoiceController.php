@@ -38,11 +38,11 @@ class InvoiceController extends Controller
             'due_date' => $request->due_date,
         ]);
 
-        try {
-            Mail::to($invoice->client->email)->send(new invoice_email($invoice->client->full_name, $invoice->amount, $invoice->due_date));
-        }catch (\Exception $e){
-            Log::error($e);
-        }
+        Mail::to($invoice->client->email)->send(new invoice_email($invoice->client->full_name, $invoice->amount, $invoice->due_date));
+//        try {
+//        }catch (\Exception $e){
+//            Log::error($e);
+//        }
 
         return $invoice;
 
