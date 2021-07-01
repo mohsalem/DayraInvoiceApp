@@ -47,4 +47,8 @@ class InvoiceController extends Controller
         return $invoice;
 
     }
+    public function getAll()
+    {
+        return Invoice::with('client')->get();
+    }
 }

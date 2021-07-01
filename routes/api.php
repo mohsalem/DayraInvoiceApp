@@ -25,5 +25,6 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['middleware' => ['auth:api']], function(){
     Route::group(['prefix' => 'invoice'], function () {
         Route::post('create', 'InvoiceController@create');
+        Route::get('getAll', 'InvoiceController@getAll');
     });
 });
