@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Client;
 use App\Invoice;
+use App\Mail\invoice_email;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class InvoiceController extends Controller
 {
@@ -34,6 +37,13 @@ class InvoiceController extends Controller
             'amount' => $request->amount,
             'due_date' => $request->due_date,
         ]);
+
+        try {
+            Mail::to($invoice->client->email)->send(new invoice_email($invoice->client->full_name, $invoice->amount, $invoice->due_date));
+        }catch (\Exception $e){
+            Log::error($e);
+        }
+
         return $invoice;
 
     }
