@@ -40,7 +40,7 @@ class UserController extends Controller
         $user = User::create($request);
 
             $response = ["message" =>$user];
-            return response($response, 422);
+            return response($response, 200);
 
     }
 }
